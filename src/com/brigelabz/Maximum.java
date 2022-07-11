@@ -1,38 +1,24 @@
 package com.brigelabz;
 
-
-import java.util.Scanner;
-
 public class Maximum {
-                      public static void main(String[] args) {
-        System.out.println("Welcome To Maximum Number Program");
-        Maximum maximum = new Maximum();
-        System.out.println("Maximum string among three string numbers is : " + maximum.compareTo());
-                      }
-
-    // compareTo method check the maximum string among three string and return it :-
-    public String compareTo() {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter first string");
-        String string1 = scanner.next();
-
-        System.out.println("Enter second string");
-        String string2 = scanner.next();
-
-        System.out.println("Enter third string");
-        String string3 = scanner.next();
-        String maximum = string1;
-
-        if (string2.compareTo(maximum)>0) {
-            maximum = string2;
-        }  if (string3.compareTo(maximum)>0) {
-            maximum = string3;
-
+    
+        public static <T extends Comparable> T testcase(T a, T b, T c) {
+            T max = a;
+            if (b.compareTo(max) > 0) {
+                max = b;
+            }
+            if (c.compareTo(max) > 0) {
+                max = c;
+            }
+            return max;
         }
-        return maximum;
+
+        public static void main(String[] args) {
+            System.out.println("Welcome to Maximum number program");
+            System.out.println("Maximum Among three integer values is:" + testcase(2, 5, 8));
+            System.out.println("Maximum Among three float values is:" + testcase(2.5f, 5.5f, 8.9f));
+            System.out.println("Maximum Among three string values is:" + testcase("Bhagyashree", "Basavaraj", "Aishwarya"));
+        }
     }
-}
 
 
