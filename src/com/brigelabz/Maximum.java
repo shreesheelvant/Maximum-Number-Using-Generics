@@ -1,20 +1,29 @@
 package com.brigelabz;
-
-
 import java.util.Arrays;
 
-public class Maximum {
+    public class Maximum<T> {
 
-    public static <T> T testCase(T... a){
-        Arrays.sort(a);
-        return a[a.length -1];
+        public T testCase(T... a) {
+            Arrays.sort(a);
+            T max = a[a.length - 1];
+            printMax(max);
+            return max;
+        }
+
+        private void printMax(T max) {
+            System.out.println(max);
+
+        }
+
+        public static void main(String[] args) {
+            Maximum<Integer> maximumInteger = new Maximum<>();
+            Maximum<Float> maximumFloat = new Maximum<>();
+            Maximum<String> maximumString = new Maximum<>();
+            maximumInteger.testCase(28, 19, 54, -2, 8, 7, 87, 75);
+            maximumFloat.testCase(3.9f, 9.8f, 76.6f, 87.6f, 69.8f, 5.7f, 4.5f);
+            maximumString.testCase("Apple", "Oranges", "Banana", "Pineapple", "Grapes");
+
+        }
     }
 
-    public static void main(String[] args) {
-        System.out.println("Maximum among all integer values is :" + testCase(1,23,54,78,66));
-        System.out.println("Maximum among all float values is :" + testCase(2.4f,5.4f,999.8f,5.7f,4.5f));
-        System.out.println("Maximum among all string values is :" + testCase("Similar","Family","Sheelvant","Raviraj","Bhagya"));
-
-    }
-}
 
